@@ -61,3 +61,16 @@
  function show(n){cur=n;imgs.forEach((x,k)=>x.classList.toggle('on',k===n));const x=imgs[n];pf.classList.toggle('empty',!(x&&x.complete&&x.naturalWidth))}
  imgs.forEach((x,k)=>x.addEventListener('load',()=>{if(k===cur)pf.classList.remove('empty')}));
  document.querySelectorAll('.pill').forEach((b,i)=>b.addEventListener('click',()=>{show(P.length?i%P.length:-1);pf.style.setProperty('--tilt',(i%2?2:-2)+'deg')}))})();
+
+/* ===== keep the floating pills on screen after rotating or resizing ===== */
+addEventListener('resize',()=>{if(typeof pills==='undefined')return;pills.forEach(p=>{p.x=Math.max(0,Math.min(p.x,innerWidth-p.b.offsetWidth));p.y=Math.max(0,Math.min(p.y,innerHeight-p.b.offsetHeight))})});
+
+/* ===== LETTER: always open from the top, and write faster ===== */
+(function(){const env=document.getElementById('env'),reader=document.getElementById('reader'),card=reader&&reader.querySelector('.letter');if(!env||!card)return;
+ const per=(typeof EXTRA!=='undefined'&&EXTRA.wordMs)||70,first=(typeof EXTRA!=='undefined'&&EXTRA.wordStart)||800;
+ function open2(){if(busy)return;busy=true;env.classList.add('open');card.scrollTop=0;
+  setTimeout(()=>{card.scrollTop=0;reader.classList.add('on');paused=true;
+   [...reader.querySelectorAll('.w')].forEach((x,i)=>wt.push(setTimeout(()=>x.classList.add('on'),first+i*per)));
+   popPic();pt=setInterval(popPic,2200)},1800)}
+ env.onclick=open2;env.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open2()}};
+ new MutationObserver(()=>{if(reader.classList.contains('on'))card.scrollTop=0;else setTimeout(()=>{card.scrollTop=0},900)}).observe(reader,{attributes:true,attributeFilter:['class']})})();

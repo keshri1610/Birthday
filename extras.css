@@ -68,3 +68,5 @@
 .pin img{position:absolute;left:8px;top:8px;width:calc(100% - 16px);height:calc(100% - 16px);display:block;opacity:0}
 .pin img.on{opacity:1}
 .pin.empty img{display:block;opacity:0}
+/* faster word reveal in the letter */
+.w{transition:opacity .5s,filter .5s,transform .5s}

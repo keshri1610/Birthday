@@ -1,0 +1,45 @@
+/* ===== Responsive pass: phones, tablets, laptops, big screens, landscape ===== */
+section{min-height:100vh;min-height:100svh}
+img{max-width:100%}
+h1,.script{max-width:100%;overflow-wrap:break-word}
+h1{font-size:clamp(2.8rem,min(13vw,17svh),8rem);line-height:1.05}
+.hb{font-size:clamp(2.6rem,min(12vw,15svh),6.4rem)}
+.moon{width:clamp(64px,min(16vw,22svh),170px);top:5svh;right:6vw}
+.hero-lily{width:clamp(90px,min(26vw,22svh),220px)}
+.txt{width:100%;max-width:min(34ch,100%)}
+.env{width:min(84vw,400px,74svh)}
+@media(max-width:900px){html{scroll-snap-type:none}body{background-attachment:scroll}}
+@media(max-width:640px){
+ body{font-size:1.1rem}
+ section{padding:3.2rem 1rem 5rem}
+ h2{margin-bottom:1.4rem}
+ .row{margin-bottom:2.4rem}
+ .wish .script{font-size:1.9rem}
+ .pill{font-size:.9rem;padding:.28rem .8rem}
+ #reader{padding:.6rem}
+ .letter{max-height:84svh;padding:1.3rem 1.1rem 1.5rem}
+ .letter .script{font-size:2rem}
+ .letter .sign{font-size:1.8rem}
+ .letter p{margin:.7rem 0}
+ #veil{padding:1rem}
+ #note{padding:1.5rem 1.1rem}
+ #note p{font-size:1.2rem}
+ #mute{width:42px;height:42px}
+}
+@media(max-width:380px){.cwish .script{font-size:2.3rem}.cwish2 .script{font-size:1.9rem}}
+@media(max-height:560px){
+ section{padding-top:2.4rem;padding-bottom:4.2rem}
+ .cake{scale:.8;margin:-1.8rem auto -1.8rem}
+ .letter{max-height:90svh;padding:1rem 1.4rem}
+ .letter .script{font-size:1.8rem}
+ #note{padding:1rem 1.4rem}
+ #note p{font-size:1.1rem;margin:.2rem 0 .6rem}
+ .pin{width:min(60%,200px,calc(34svh*.8))}
+ .hint{position:static;translate:none;animation:none;margin-top:1rem}
+}
+@media(min-width:1600px){html{font-size:112.5%}}
+@media(min-width:2200px){html{font-size:125%}}
+/* ===== No sideways scrolling on any device ===== */
+html,body{max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}
+section{overflow:hidden}
+.cake::before{width:min(560px,100vw)}

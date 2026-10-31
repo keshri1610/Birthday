@@ -6,7 +6,7 @@ const CONFIG={
  // add your photo links or files (leave src empty for a lily placeholder)
  memories:[
   {src:"images/IMG_2.jpg",title:"Your smile",text:"The world feels softer when you laugh. I hope this year gives you a thousand reasons to do it."},
-  {src:"images/IMG_13.jpeg",title:"Your light",text:"You shine like the moon on a quiet night, calm, steady, and impossible to look away from."},
+  {src:"images/IMG_13.jpeg",title:"Your light",text:"You shine like the star on a quiet night, calm, steady, and impossible to look away from."},
   {src:"images/IMG_16.jpeg",title:"Your year ahead",text:"May every dream you whisper to the moon find its way home to you."}
  ],
  pills:[
@@ -22,12 +22,30 @@ const CONFIG={
   "Happy birthday. You deserve every beautiful thing."
  ],
  letter:{
-  to:"Dear shephali,",
+  to:"Dear Jaanu 💗,",
   body:[
-   "Today is your day, and I wanted to give you something that feels like you: quiet, beautiful, and full of light.",
-   "I am grateful for every moment we share, and for the way you make ordinary days feel like something worth remembering.",
-   "May this new year hold more joy than you can carry, more love than you can count, and more stars than you can wish upon.",
-   "Happy birthday, always and forever."
+  
+"Happpyyyyy Birthdayyy!! 🎉💐💗",
+
+"It's your day, and I really wanted to make something special for you, just to remind you that you deserve all the happiness in the world. 🫶🏻",
+
+"I know you've been carrying so much responsibility on your shoulders for years, especially as the elder child. But hey, sometimes you can be a little careless too, do silly things, laugh endlessly, and just enjoy life. You don't always have to be the responsible one. Your happiness and peace matter just as much. 💗",
+
+"And whenever life feels a little too heavy, remember that there's a friend you can call or text anytime. You don't have to figure everything out alone. I'll always be there to listen. 🫂",
+
+"I don't know why, but seeing you genuinely happy makes me happy too. I just want you to chase your dreams, live life on your own terms, and never stop doing the things that make you feel alive. ✨",
+
+"Sometimes you ask me why I talk to you. Honestly, I guess it's because of how honest, kind, and generous you are. Talking to you feels easy, and you have this way of making people feel heard. I'm really glad I got to know you. 💗",
+
+"Lastly, you have such a beautiful soul, and I hope you never let a few random people make you hide it. Keep being the person you are, enjoy every little moment, live freely, and never forget to be happy yourself while taking care of everyone else.",
+
+"Once again, Happpyyyy Birthdayyy, Jaaanuuuu! 🎂🌷",
+
+"I hope life is kinder to you this year, gives you a thousand reasons to smile, and brings you closer to everything your heart wishes for. You deserve all the love and happiness in the world. And hey, never forget you've got a friend cheering for you, always. 🥹💗"
+  //  "Today is your day, and I wanted to give you something that feels like you: quiet, beautiful, and full of light.",
+  //  "I am grateful for every moment we share, and for the way you make ordinary days feel like something worth remembering.",
+  //  "May this new year hold more joy than you can carry, more love than you can count, and more stars than you can wish upon.",
+  //  "Happy birthday, always and forever."
   ],
   sign:"With all my love"
  },
