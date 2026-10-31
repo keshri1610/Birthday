@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="garden.css">
+<link rel="stylesheet" href="extras.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<radialGradient id="pg" cx="50%" cy="90%" r="95%"><stop offset="0" stop-color="#f7b6d2"/><stop offset=".45" stop-color="#ffe9f3"/><stop offset="1" stop-color="#ffffff"/></radialGradient>
+<symbol id="lily" viewBox="0 0 200 200">
+<g fill="url(#pg)" stroke="#f1c4da" stroke-width=".8">
+<path id="pt" d="M100 100C76 72 84 30 100 6c16 24 24 66 0 94z"/>
+<use href="#pt" transform="rotate(60 100 100)"/><use href="#pt" transform="rotate(120 100 100)"/><use href="#pt" transform="rotate(180 100 100)"/><use href="#pt" transform="rotate(240 100 100)"/><use href="#pt" transform="rotate(300 100 100)"/></g>
+<g stroke="#f3d98b" stroke-width="1.6" stroke-linecap="round" fill="#f3b24a"><path d="M100 100L100 52M100 100L64 66M100 100L136 66M100 100L58 104M100 100L142 104"/><circle cx="100" cy="52" r="3.4"/><circle cx="64" cy="66" r="3.4"/><circle cx="136" cy="66" r="3.4"/><circle cx="58" cy="104" r="3.4"/><circle cx="142" cy="104" r="3.4"/></g>
+</symbol>
+<g id="jfg"><circle r="10" fill="rgba(255,250,225,.16)"/><g fill="#fffdf6" stroke="#f1d6e4" stroke-width=".35"><path id="jp" d="M0 0C-3.2 -4 -2.8 -9 0 -12C2.8 -9 3.2 -4 0 0Z"/><use href="#jp" transform="rotate(72)"/><use href="#jp" transform="rotate(144)"/><use href="#jp" transform="rotate(216)"/><use href="#jp" transform="rotate(288)"/></g><circle r="1.8" fill="#ffd77a"/></g></defs></svg>
+<canvas id="stars"></canvas>
+
+<div id="gate" role="button" tabindex="0" aria-label="Open your birthday surprise">
+<svg><use href="#lily"/></svg><h1 class="script" style="font-size:3rem">For you</h1><p>Tap anywhere to open, music will begin ✦</p></div>
+
+<main>
+<section id="home">
+<div class="moon" aria-hidden="true"></div>
+<svg class="hero-lily"><use href="#lily"/></svg>
+<p class="sub rise" data-d="0">Under the moon, among the lilies, tonight belongs to</p>
+<h1 class="script rise" data-d="1" id="nm">you</h1>
+<p class="script rise" data-d="2" style="font-size:clamp(3.4rem,12vw,6.4rem);line-height:1.05;color:var(--gold);text-shadow:0 0 30px rgba(243,217,139,.45)">Happy Birthday</p>
+<p class="moonline rise" data-d="3"><span id="mtxt"></span><small id="msub"></small></p>
+<button class="hint" data-next>Scroll gently, there is more</button>
+</section>
+
+<section id="cakeSec">
+<p class="script rise" id="cakeT">A little cake, just for you</p>
+<div class="txt rise"><p class="sub sub2" style="margin:0">Close your eyes, think of a wish, then blow out the candles.</p><p class="cwish cwish1"><span class="script">Make a wish ✦</span><small>Keep it in your heart. The stars are listening.</small></p><p class="cwish cwish2"><span class="script">May every wish in your heart come true ✦</span><small>Today, tomorrow, and always.</small></p></div>
+<div class="cake rise" id="cake" role="button" tabindex="0" aria-label="Blow out the candles"><div class="candles" id="candles"></div><div class="tier t2"></div><div class="tier t1"></div><div class="plate"></div></div>
+<div class="acts rise"><button class="ghost" id="micBtn">Blow into the mic</button><button class="ghost" id="again">Light them again</button></div>
+<p class="tap rise" style="font-size:1rem">or simply tap the cake</p>
+<button class="hint" data-next>And some memories for you</button>
+</section>
+
+<section id="memories">
+<h2 class="script rise">Moments, and my wishes</h2>
+<div id="rows" style="width:100%"></div>
+<button class="hint" data-next>Last, a letter for you</button>
+</section>
+
+<section id="letter">
+<p class="script" id="eh">A letter is waiting for you</p>
+<div class="env" id="env" role="button" tabindex="0" aria-label="Open the letter"><div class="flap"></div><div class="mini"></div><div class="front"></div><div class="seal">❀</div></div>
+<p class="tap">Tap the envelope to open it</p>
+<div class="garden" aria-hidden="true"><div id="grass"></div><div id="ground"></div><svg class="tree" viewBox="0 0 220 280"><ellipse cx="150" cy="277" rx="40" ry="4" fill="rgba(0,0,0,.35)"/><path d="M142 279C146 250 140 226 124 196C112 174 110 152 114 128L120 128C121 152 126 172 138 194C152 222 160 250 160 279Z" fill="#4a392f"/><path d="M150 276C150 248 136 222 122 192C114 172 115 150 117 130" stroke="#8d7aa8" stroke-width="1.2" opacity=".45" fill="none"/><g id="tw"></g></svg><div id="gust"></div></div>
+</section>
+<div id="reader"><div id="pics"></div>
+<div class="sheet"><div class="letter"><p class="script" id="lt-h"></p><div id="lt-b"></div><p class="sign script" id="lt-s"></p><button id="fold">Fold it away</button></div></div></div>
+</main>
+
+<div id="veil" role="dialog" aria-modal="true"><div id="note"><figure class="pin empty" id="pf"><img id="pimg" alt=""><div class="ph"><svg><use href="#lily"/></svg></div><svg class="pinlily"><use href="#lily"/></svg><i class="pinhead"></i></figure><p id="nt"></p><button id="nx">Close</button></div></div>
+
+<button id="mute" aria-label="Turn music off" title="Music on/off">
+<svg class="on" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+<svg class="off" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></button>
+
+<script src="script.js"></script>
+<script src="garden.js"></script>
+<script src="extra-config.js"></script>
+<script src="extras.js"></script>
+</body>
+</html>

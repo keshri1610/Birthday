@@ -1,0 +1,20 @@
+/* Night-blooming jasmine garden: lives inside the letter section, tree stands to the right of the envelope */
+.garden{position:absolute;left:0;right:0;bottom:0;height:0;z-index:3;pointer-events:none;overflow-x:clip;opacity:0;transition:opacity 1.8s ease}
+.garden.in{opacity:1}
+.bl{position:absolute;bottom:-2px;width:5px;transform-origin:50% 100%;background:linear-gradient(#3a8f74,#12302f);clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.8;animation:gs 3.6s ease-in-out infinite alternate}
+.fl{position:absolute;overflow:visible;filter:drop-shadow(0 0 4px rgba(255,248,225,.85))}
+.fl.lf{filter:none}
+.rock{animation:rock 4.5s ease-in-out infinite alternate}
+.blow{opacity:0;animation:blow 12s linear infinite}
+.st{position:absolute;height:1px;opacity:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:st 6s ease-in infinite}
+.tree{position:absolute;right:1vw;bottom:0;width:clamp(150px,22vw,220px);overflow:visible;transform-origin:70% 100%;animation:wind 7s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(255,248,225,.22))}
+.cn{animation:cs 4s ease-in-out infinite}
+@keyframes wind{0%,100%{rotate:.6deg}35%{rotate:-2.4deg}55%{rotate:-1deg}80%{rotate:-3.4deg}}
+@keyframes cs{0%,100%{rotate:calc(var(--a)*.5)}50%{rotate:calc(var(--a)*-1.5)}}
+@keyframes gs{from{rotate:-2deg}to{rotate:-17deg}}
+@keyframes rock{from{rotate:var(--r0);translate:0 0}to{rotate:calc(var(--r0) - 40deg);translate:-6px -1px}}
+@keyframes blow{0%{opacity:0;translate:0 0;rotate:0deg}8%{opacity:1}35%{translate:calc(var(--dx)*.35) calc(var(--dy)*-.7)}65%{translate:calc(var(--dx)*.7) calc(var(--dy)*.5)}92%{opacity:1}100%{opacity:0;translate:var(--dx) var(--dy);rotate:var(--rr)}}
+@keyframes st{0%{opacity:0;translate:0 0}25%{opacity:.8}100%{opacity:0;translate:-60vw -26px}}
+.tree{translate:0 60px;transition:translate 2.2s cubic-bezier(.2,.8,.2,1)}
+.garden.in .tree{translate:0 0}
+@media(max-width:700px){#letter .env{align-self:flex-start;margin-left:5vw;width:70vw}}

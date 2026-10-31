@@ -1,0 +1,70 @@
+/* ===== Moon phase line (home) ===== */
+.moon{--k:1;animation:none;background:none;box-shadow:none;border-radius:0;overflow:visible}
+.moon::before,.moon::after{display:none}
+.moon .shade{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 calc(22px*var(--k)) rgba(243,217,139,calc(.55*var(--k)))) drop-shadow(0 0 calc(60px*var(--k)) rgba(243,217,139,calc(.25*var(--k))));animation:mglow 6s ease-in-out infinite}
+@keyframes mglow{50%{opacity:.88}}
+.moonline{max-width:34ch;margin:1.1rem auto 0;color:var(--soft);font-style:italic}
+.moonline small{display:block;opacity:.7;font-size:.95rem;margin-top:.2rem}
+/* ===== Cake and candles ===== */
+#cakeT{font-size:clamp(2.2rem,7vw,3.2rem);color:var(--rose);line-height:1.2}
+.txt{position:relative;z-index:1;display:grid;max-width:34ch;margin:.6rem auto 0;min-height:4.4rem}
+.txt>*{grid-area:1/1;transition:opacity .9s ease,scale .9s ease}
+.cwish{opacity:0;scale:.85;pointer-events:none;text-align:center}
+.cwish .script{display:block;font-size:clamp(2.6rem,9vw,3.8rem);color:var(--gold);text-shadow:0 0 28px rgba(243,217,139,.55);line-height:1.1}
+.cwish small{display:block;color:var(--soft);font-style:italic;margin-top:.3rem}
+#cakeSec.done .sub2{opacity:0}
+#cakeSec.wishing .cwish1,#cakeSec.blessed .cwish2{opacity:1;scale:1}
+.cwish2 .script{font-size:clamp(2.1rem,7vw,3rem)}
+.txt>.cwish{transition-duration:1.6s}
+.cake{position:relative;width:min(76vw,300px);height:290px;margin:.2rem auto 1rem;cursor:pointer}
+.cake:focus-visible{outline:2px solid var(--gold);outline-offset:10px}
+.cake::before{content:"";position:absolute;left:50%;top:-120px;width:min(560px,150vw);height:400px;translate:-50% 0;background:radial-gradient(ellipse closest-side,rgba(255,196,110,.40),rgba(255,160,70,.15) 55%,transparent);opacity:var(--cg,1);transition:opacity .15s;pointer-events:none}
+.cake.dark::before{opacity:0;transition-duration:1.2s}
+.tier{position:absolute;left:50%;translate:-50% 0;border-radius:14px 14px 10px 10px;box-shadow:0 0 40px rgba(244,166,200,.25)}
+.tier::before{content:"";position:absolute;left:-2px;right:-2px;top:-5px;height:30px;border-radius:14px 14px 0 0;background:radial-gradient(circle at 50% 0,#ffe9f3 12px,transparent 13px) 0 14px/26px 18px repeat-x,linear-gradient(#ffe9f3,#ffe9f3) 0 0/100% 18px no-repeat}
+.t1{bottom:16px;width:100%;height:104px;background:linear-gradient(180deg,#7a54c4,#43297f)}
+.t2{bottom:120px;width:68%;height:76px;background:linear-gradient(180deg,#8a63d0,#4f3394)}
+.tier svg{position:absolute;width:20px;height:20px;overflow:visible;bottom:14px;filter:drop-shadow(0 0 4px rgba(255,248,225,.8))}
+.plate{position:absolute;bottom:0;left:50%;translate:-50% 0;width:120%;height:24px;border-radius:50%;background:linear-gradient(#d9c9f0,#8d7aa8);box-shadow:0 8px 30px rgba(0,0,0,.55)}
+.candles{position:absolute;left:50%;translate:-50% 0;bottom:190px;width:62%;display:flex;justify-content:space-around;align-items:flex-end}
+.cd{position:relative;width:8px;height:40px;border-radius:2px;background:repeating-linear-gradient(135deg,#fff 0 6px,var(--c) 6px 12px)}
+.cd::before{content:"";position:absolute;left:50%;top:-6px;width:2px;height:7px;background:#3a2a20;translate:-50% 0}
+.flame{position:absolute;left:50%;top:-31px;translate:-50% 0;width:12px;height:25px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(ellipse at 50% 80%,#fff 0,#ffe79a 30%,#ffb04a 68%,rgba(255,150,60,0) 100%);transform-origin:50% 100%;scale:var(--s,1) var(--h,1);rotate:var(--rot,0deg);box-shadow:0 0 calc(12px*var(--gl,1)) calc(2px*var(--gl,1)) rgba(255,185,90,calc(.6*var(--gl,1))),0 0 calc(30px*var(--gl,1)) calc(4px*var(--gl,1)) rgba(255,160,70,calc(.25*var(--gl,1)));transition:scale .12s ease-out,rotate .12s ease-out,box-shadow .12s ease-out}
+.flame::after{content:"";position:absolute;left:50%;bottom:2px;width:5px;height:11px;translate:-50% 0;border-radius:50%;background:#fff;opacity:.9;filter:blur(1px)}
+.smoke{position:absolute;left:50%;top:-14px;width:5px;height:22px;border-radius:50%;background:linear-gradient(rgba(225,215,255,.55),transparent);opacity:0;translate:-50% 0}
+.cd.out .flame{opacity:0;scale:.2 .2;animation:none;transition:opacity .35s,scale .35s}
+.cd.out .smoke{animation:smoke 2.6s ease-out both}
+.acts{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.ghost{background:rgba(120,95,220,.22);border:1px solid rgba(243,217,139,.55);color:var(--gold);font:italic 1.05rem "Cormorant Garamond",serif;padding:.45rem 1.3rem;border-radius:999px;cursor:pointer}
+.ghost:hover{background:rgba(244,166,200,.3)}
+#again{display:none}#cakeSec.done #again{display:inline-block}#cakeSec.done #micBtn{display:none}
+.burst{position:fixed;inset:0;pointer-events:none;z-index:22;overflow:hidden}
+.bp{position:absolute;opacity:0;animation:bp 3s cubic-bezier(.2,.7,.3,1) both;filter:drop-shadow(0 0 5px rgba(255,248,225,.8))}
+.pe{background:linear-gradient(135deg,#ffd6e8,#f4a6c8);border-radius:50% 0 50% 50%}
+.st2{color:#f3d98b;text-shadow:0 0 10px #f3d98b;line-height:1}
+.fp{position:absolute;top:0;opacity:0;animation:fp 7s linear both}
+@keyframes flick{from{scale:1 1;rotate:-3deg}to{scale:.88 1.1;rotate:3deg}}
+@keyframes smoke{0%{opacity:.8;translate:-50% 0;scale:1 .4}100%{opacity:0;translate:-20% -46px;scale:2.4 1.6}}
+@keyframes bp{0%{opacity:0;translate:0 0;scale:.3}8%{opacity:1}45%{translate:var(--x) var(--y);scale:1}100%{opacity:0;translate:calc(var(--x)*1.15) calc(var(--y) + var(--g));rotate:var(--rr)}}
+@keyframes fp{0%{opacity:0;translate:0 -12vh}8%{opacity:1}100%{opacity:.9;translate:var(--sw) 112vh;rotate:var(--rr)}}
+/* glitter */
+.bp{animation:bp 3s cubic-bezier(.2,.7,.3,1) both,tw .5s ease-in-out infinite alternate}
+.fp{animation:fp 7s linear both,tw .6s ease-in-out infinite alternate}
+.gs{fill:currentColor}
+.dot{border-radius:50%;background:currentColor;box-shadow:0 0 8px 2px currentColor}
+@keyframes tw{from{scale:.45}to{scale:1.1}}
+/* Photo pinned with a lily inside the wish pill notes */
+#note{max-height:90svh;overflow:auto}
+.pin{position:relative;margin:.5rem auto 1.1rem;width:min(68%,230px);aspect-ratio:4/5;padding:8px;background:#f6efff;border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.5);rotate:var(--tilt,-2deg)}
+.pin img{display:block;width:100%;height:100%;object-fit:cover;border-radius:2px}
+.pin .ph{display:none;width:100%;height:100%;place-items:center;background:linear-gradient(160deg,#3b2b8c,#1a1248);border-radius:2px}
+.pin.empty img{display:none}.pin.empty .ph{display:grid}
+#note .ph svg{width:46%;margin:0;opacity:.8}
+#note .pinlily{position:absolute;left:-22px;top:-22px;width:56px;height:56px;margin:0;rotate:-12deg;filter:drop-shadow(0 3px 5px rgba(0,0,0,.55));z-index:2}
+.pinhead{position:absolute;left:1px;top:1px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6c9,#e0a93c 60%,#9b6a14);box-shadow:0 1px 3px rgba(0,0,0,.6);z-index:3}
+#veil.on .pinlily{animation:pinin .7s cubic-bezier(.2,1.4,.4,1) .35s both}
+@keyframes pinin{from{scale:0;rotate:-100deg}to{scale:1;rotate:-12deg}}
+/* instant photo switching: all photos are preloaded and stacked, only the current one is visible */
+.pin img{position:absolute;left:8px;top:8px;width:calc(100% - 16px);height:calc(100% - 16px);display:block;opacity:0}
+.pin img.on{opacity:1}
+.pin.empty img{display:block;opacity:0}
