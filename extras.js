@@ -1,3 +1,9 @@
+/* ===== ALWAYS START AT THE TOP (never restore an old scroll position) ===== */
+(function(){if('scrollRestoration' in history)history.scrollRestoration='manual';
+ const top0=()=>window.scrollTo({top:0,left:0,behavior:'instant'}),de=document.documentElement,gate=document.getElementById('gate');
+ top0();addEventListener('load',()=>{top0();setTimeout(top0,60)});addEventListener('pageshow',top0);
+ if(gate&&!gate.classList.contains('gone')){de.style.overflow='hidden';
+  new MutationObserver((m,o)=>{if(gate.classList.contains('gone')){de.style.overflow='';top0();o.disconnect()}}).observe(gate,{attributes:true,attributeFilter:['class']})}})();
 /* ===== MOON PHASE ===== */
 (function(){const m=document.querySelector('.moon');if(!m)return;
  const has=!!EXTRA.birthDate,n=new Date(),p0=has?EXTRA.birthDate.split('-').map(Number):[n.getFullYear(),n.getMonth()+1,n.getDate()];
