@@ -1,6 +1,6 @@
 /* ===== EDIT YOUR CONTENT HERE ===== */
 const CONFIG={
- name:"My Dearest",
+ name:"Shephali",
  // your own song: put the file in a "music" folder, e.g. "music/song.mp3". Leave "" to use the built-in melody.
  music:"/music/song.mp3",
  // add your photo links or files (leave src empty for a lily placeholder)

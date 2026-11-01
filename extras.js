@@ -80,3 +80,40 @@ addEventListener('resize',()=>{if(typeof pills==='undefined')return;pills.forEac
    popPic();pt=setInterval(popPic,2200)},1800)}
  env.onclick=open2;env.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open2()}};
  new MutationObserver(()=>{if(reader.classList.contains('on'))card.scrollTop=0;else setTimeout(()=>{card.scrollTop=0},900)}).observe(reader,{attributes:true,attributeFilter:['class']})})();
+
+/* ===== HER NAME AS A LIVING CONSTELLATION OF STARDUST (uses CONFIG.name) ===== */
+(function(){const h=document.getElementById('nm');if(!h)return;
+ const name=((typeof CONFIG!=='undefined'&&CONFIG.name)||h.textContent||'').trim();if(!name)return;
+ document.title='Happy Birthday, '+name+' ✦';
+ const gh=document.querySelector('#gate h1');if(gh)gh.textContent='For you, '+name;
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fs0=parseFloat(getComputedStyle(h).fontSize)||64,pal=['#ffffff','#ffe9f3','#f3d98b','#f4a6c8','#d9ccff'];
+ let cv,ctx,P=[],W=0,H=0,go=h.classList.contains('in'),ptr=null,raf=0,vis=true,lastW=innerWidth,ua=0,FN='',TX=0,TY=0;
+ function bind(){const set=e=>{const r=cv.getBoundingClientRect();ptr={x:e.clientX-r.left,y:e.clientY-r.top}};
+  cv.addEventListener('pointermove',set);cv.addEventListener('pointerdown',set);['pointerleave','pointerup','pointercancel'].forEach(n=>cv.addEventListener(n,()=>{ptr=null}))}
+ function draw(t){ctx.clearRect(0,0,W,H);const wx=((t*.11)%(W+500))-250,R2=4900;
+  if(go&&ua<.16)ua+=.0015;if(ua>0||reduce){ctx.globalAlpha=reduce?.16:ua;ctx.fillStyle='#ffe9f3';ctx.font=FN;ctx.fillText(name,TX,TY)}
+  for(const p of P){
+   if(go){p.vx=(p.vx+(p.tx-p.x)*.035)*.86;p.vy=(p.vy+(p.ty-p.y)*.035)*.86}
+   if(ptr){const dx=p.x-ptr.x,dy=p.y-ptr.y,d2=dx*dx+dy*dy;if(d2<R2&&d2>.01){const f=(1-d2/R2)*3/Math.sqrt(d2);p.vx+=dx*f;p.vy+=dy*f}}
+   p.x+=p.vx;p.y+=p.vy;
+   const wv=Math.max(0,1-Math.abs(p.tx-wx)/55),tw=.7+.3*Math.sin(t*.002*p.s+p.ph),r=p.r*(1+wv*.7),
+    px=p.x+Math.sin(t*.0012*p.s+p.ph)*.8,py=p.y+Math.cos(t*.001*p.s+p.ph)*.8;
+   ctx.globalAlpha=Math.min(1,tw+wv*.7);ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(px,py,r,0,6.283);ctx.fill();
+   if(p.big&&tw>.85){ctx.strokeStyle=p.c;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(px-r*4,py);ctx.lineTo(px+r*4,py);ctx.moveTo(px,py-r*4);ctx.lineTo(px,py+r*4);ctx.stroke()}}
+  ctx.globalAlpha=1}
+ function loop(t){if(!vis){raf=0;return}raf=requestAnimationFrame(loop);draw(t)}
+ function build(){cancelAnimationFrame(raf);raf=0;
+  const maxW=Math.min(innerWidth-32,760),dpr=Math.min(devicePixelRatio||1,2),o=document.createElement('canvas'),x=o.getContext('2d',{willReadFrequently:true}),F=s=>`${s}px "Great Vibes",cursive`;
+  let size=fs0;x.font=F(size);let w=x.measureText(name).width;if(w>maxW){size*=maxW/w;x.font=F(size);w=x.measureText(name).width}
+  W=Math.ceil(w+size*.5);H=Math.ceil(size*1.35);o.width=W;o.height=H;x.font=F(size);x.fillStyle='#fff';x.fillText(name,size*.25,size*.95);x.strokeStyle='#fff';x.lineWidth=Math.max(1.5,size*.035);x.strokeText(name,size*.25,size*.95);FN=F(size);TX=size*.25;TY=size*.95;
+  const d=x.getImageData(0,0,W,H).data;let s=Math.max(2.2,size/34),pts;
+  do{pts=[];for(let yy=0;yy<H;yy+=s)for(let xx=0;xx<W;xx+=s){const jx=xx+Math.random()*s,jy=yy+Math.random()*s;if(jx>=W||jy>=H)continue;if(d[((jy|0)*W+(jx|0))*4+3]>140)pts.push([jx,jy])}s*=1.18}while(pts.length>1600);
+  P=pts.map(([tx,ty])=>({tx,ty,x:go?tx:Math.random()*W,y:go?ty:Math.random()*H*2-H*.5,vx:0,vy:0,r:Math.random()*1+.8,ph:Math.random()*6.28,s:.6+Math.random()*1.2,c:pal[(Math.random()*pal.length)|0],big:Math.random()<.07}));
+  if(!cv){h.innerHTML='<span class="sr"></span><canvas id="nameCv" aria-hidden="true"></canvas>';h.firstChild.textContent=name;cv=h.querySelector('canvas');ctx=cv.getContext('2d');bind();
+   new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis&&!raf&&!reduce)raf=requestAnimationFrame(loop)}).observe(h);
+   new MutationObserver(()=>{if(h.classList.contains('in'))go=true}).observe(h,{attributes:true,attributeFilter:['class']})}
+  cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';cv.style.margin=(-size*.12)+'px auto';ctx.setTransform(dpr,0,0,dpr,0,0);
+  if(reduce){P.forEach(p=>{p.x=p.tx;p.y=p.ty});draw(0)}else raf=requestAnimationFrame(loop)}
+ let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(innerWidth!==lastW){lastW=innerWidth;build()}},250)});
+ const fl=document.fonts?document.fonts.load('64px "Great Vibes"',name):Promise.resolve();
+ Promise.race([fl,new Promise(r=>setTimeout(r,1500))]).then(build,build)})();

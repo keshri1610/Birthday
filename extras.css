@@ -70,3 +70,7 @@
 .pin.empty img{display:block;opacity:0}
 /* faster word reveal in the letter */
 .w{transition:opacity .5s,filter .5s,transform .5s}
+/* her name as stardust */
+#nm{display:block;line-height:0}
+#nm .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#nameCv{display:block;max-width:100%;touch-action:pan-y;filter:drop-shadow(0 0 10px rgba(244,166,200,.5)) drop-shadow(0 0 26px rgba(160,130,255,.3))}
